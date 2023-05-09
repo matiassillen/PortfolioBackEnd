@@ -20,7 +20,7 @@ public class ImpPersonaService implements IPersonaService{
     @Autowired IPersonaRepository ipersonaRepository;
 
     @Override
-    public List<Persona> getpersona() {
+    public List<Persona> getPersona() {
         List<Persona> persona = ipersonaRepository.findAll();
         return persona;
 
@@ -41,5 +41,4 @@ public class ImpPersonaService implements IPersonaService{
         Persona persona = ipersonaRepository.findById(id).orElse(null);
         return persona;
     }
-    
 }

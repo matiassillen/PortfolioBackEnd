@@ -14,7 +14,7 @@ import java.util.List;
  */
 public interface IPersonaService {
     //Traer una persona
-    public List<Persona> getpersona();
+    public List<Persona> getPersona();
     
     //Guardar un objeto de tipo Persona
     public void savePersona(Persona persona);
@@ -24,5 +24,5 @@ public interface IPersonaService {
     
     //Buscar una persona por ID
     public Persona findPersona(Long id);
-    
+
 }
