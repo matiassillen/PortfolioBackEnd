@@ -1,0 +1,62 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.portfolio.SRM.Security.Dto;
+
+import java.util.Collection;
+import org.springframework.security.core.GrantedAuthority;
+
+/**
+ *
+ * @author Matías Sillen
+ */
+public class JwtDto {
+    private String token;
+    private String bearer = "Bearer";
+    private String nombreUsruario;
+    private Collection<? extends GrantedAuthority> authorities;
+    
+    //Constructor
+
+    public JwtDto(String token, String nombreUsruario, Collection<? extends GrantedAuthority> authorities) {
+        this.token = token;
+        this.nombreUsruario = nombreUsruario;
+        this.authorities = authorities;
+    }
+    
+    //Getters y Setters
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getBearer() {
+        return bearer;
+    }
+
+    public void setBearer(String bearer) {
+        this.bearer = bearer;
+    }
+
+    public String getNombreUsruario() {
+        return nombreUsruario;
+    }
+
+    public void setNombreUsruario(String nombreUsruario) {
+        this.nombreUsruario = nombreUsruario;
+    }
+
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return authorities;
+    }
+
+    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+        this.authorities = authorities;
+    }
+    
+}
