@@ -18,8 +18,6 @@ public class NuevoUsuario {
     private String password;
     private Set<String> roles = new HashSet<>();
     
-    //Getter y Setters
-
     public String getNombre() {
         return nombre;
     }
