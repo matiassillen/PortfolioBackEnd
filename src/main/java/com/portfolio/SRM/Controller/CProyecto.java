@@ -10,12 +10,12 @@ import com.portfolio.SRM.Dto.dtoProyecto;
 import com.portfolio.SRM.Entity.Proyecto;
 import com.portfolio.SRM.Security.Controller.Mensaje;
 import com.portfolio.SRM.Service.SProyecto;
-
-import io.micrometer.common.util.StringUtils;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -52,6 +52,7 @@ public class CProyecto {
     }
     
     @DeleteMapping("/delete/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> delete(@PathVariable("id") int id) {
         if (!sProyecto.existsById(id)) {
             return new ResponseEntity(new Mensaje("no existe"), HttpStatus.NOT_FOUND);
@@ -60,8 +61,8 @@ public class CProyecto {
         return new ResponseEntity(new Mensaje("producto eliminado"), HttpStatus.OK);
     }
 
-    
     @PostMapping("/create")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> create(@RequestBody dtoProyecto dtoproyec){      
         if(StringUtils.isBlank(dtoproyec.getNombreP()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -75,6 +76,7 @@ public class CProyecto {
     }
     
     @PutMapping("/update/{id}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoProyecto dtoproyec){
         //Validamos si existe el ID
         if(!sProyecto.existsById(id))
@@ -92,6 +94,5 @@ public class CProyecto {
         
         sProyecto.save(proyecto);
         return new ResponseEntity(new Mensaje("Proyecto actualizado"), HttpStatus.OK);
-             
     }
 }

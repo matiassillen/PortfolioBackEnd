@@ -4,7 +4,7 @@
  */
 package com.portfolio.SRM.Security.Dto;
 
-import jakarta.validation.constraints.NotBlank;
+import javax.validation.constraints.NotBlank;
 
 /**
  *
@@ -30,6 +30,5 @@ public class LoginUsuario {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-    
+    } 
 }
