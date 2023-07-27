@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Matías Sillen
  */
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"https://portfoliofrontend-srm.web.app"})
 @RequestMapping("/skill")
 public class Chys {
 
@@ -62,7 +62,6 @@ public class Chys {
     }
 
     @PostMapping("/create")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> create(@RequestBody dtoHys dtohys) {
         if (StringUtils.isBlank(dtohys.getNombre())) {
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);

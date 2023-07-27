@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/educacion")
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"https://portfoliofrontend-srm.web.app"})
 public class CEducacion {
     @Autowired
     SEducacion sEducacion;
@@ -61,7 +61,6 @@ public class CEducacion {
     }
     
     @PostMapping("/create")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> create(@RequestBody dtoEducacion dtoeducacion){
         if(StringUtils.isBlank(dtoeducacion.getNombreE())){
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);

@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/proyec")
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"https://portfoliofrontend-srm.web.app"})
 public class CProyecto {
     @Autowired
     SProyecto sProyecto;
@@ -62,7 +62,6 @@ public class CProyecto {
     }
 
     @PostMapping("/create")
-    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<?> create(@RequestBody dtoProyecto dtoproyec){      
         if(StringUtils.isBlank(dtoproyec.getNombreP()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);

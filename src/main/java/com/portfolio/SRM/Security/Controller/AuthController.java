@@ -4,6 +4,7 @@
  */
 package com.portfolio.SRM.Security.Controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import com.portfolio.SRM.Security.Dto.JwtDto;
 import com.portfolio.SRM.Security.Dto.LoginUsuario;
 import com.portfolio.SRM.Security.Dto.NuevoUsuario;
@@ -39,7 +40,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfoliofrontend-srm.web.app")
 public class AuthController {
     @Autowired
     PasswordEncoder passwordEncoder;

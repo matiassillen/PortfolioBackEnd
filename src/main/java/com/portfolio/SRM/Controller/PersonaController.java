@@ -30,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/personas")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "https://portfoliofrontend-srm.web.app")
 public class PersonaController {
     @Autowired
     ImpPersonaService personaService;
@@ -83,5 +83,11 @@ public class PersonaController {
         personaService.save(persona);
         
         return new ResponseEntity(new Mensaje("Persona actualizada"), HttpStatus.OK);
+    }
+    
+    @PostMapping("/crear")
+    public String createPersona(@RequestBody Persona persona){
+        personaService.save(persona);
+        return "Saved";
     }
 }
