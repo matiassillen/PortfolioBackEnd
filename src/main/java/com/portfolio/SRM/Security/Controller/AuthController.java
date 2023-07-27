@@ -4,6 +4,7 @@
  */
 package com.portfolio.SRM.Security.Controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import com.portfolio.SRM.Security.Dto.JwtDto;
 import com.portfolio.SRM.Security.Dto.LoginUsuario;
 import com.portfolio.SRM.Security.Dto.NuevoUsuario;
