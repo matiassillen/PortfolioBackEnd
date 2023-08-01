@@ -29,7 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author Matías Sillen
  */
 @RestController
-@CrossOrigin(origins = {"https://portfoliofrontend-srm.web.app"})
+@CrossOrigin(origins = "https://portfoliofrontend-srm.web.app")
 @RequestMapping("/skill")
 public class Chys {
 

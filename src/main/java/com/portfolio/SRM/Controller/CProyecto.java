@@ -32,7 +32,7 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RestController
 @RequestMapping("/proyec")
-@CrossOrigin(origins = {"https://portfoliofrontend-srm.web.app"})
+@CrossOrigin(origins = "https://portfoliofrontend-srm.web.app")
 public class CProyecto {
     @Autowired
     SProyecto sProyecto;
