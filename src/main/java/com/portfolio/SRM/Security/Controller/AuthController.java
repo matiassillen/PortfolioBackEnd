@@ -4,7 +4,6 @@
  */
 package com.portfolio.SRM.Security.Controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import com.portfolio.SRM.Security.Dto.JwtDto;
 import com.portfolio.SRM.Security.Dto.LoginUsuario;
 import com.portfolio.SRM.Security.Dto.NuevoUsuario;
@@ -53,7 +52,6 @@ public class AuthController {
     @Autowired
     JwtProvider jwtProvider;
     
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/nuevo")
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult){
         if(bindingResult.hasErrors())
